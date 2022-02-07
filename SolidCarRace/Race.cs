@@ -12,15 +12,14 @@ namespace SolidCarRace
 
         public Race(int laps, List<Car> cars)
         {
-            _numberOfLaps = laps;
+            _numberOfLaps = laps <= 0 ? 0 : laps;
             _cars = cars;
         }
 
         public int CalculateFuel()
         {
-            var laps = _numberOfLaps <= 0 ? 0 : _numberOfLaps;
-            var fuel = _cars?.Sum(car => car.GetFuelConsumption());
-            return fuel * laps ?? 0;
+            var overallConsumption = _cars?.Sum(car => car.CalculateConsumption(_numberOfLaps));
+            return overallConsumption ?? 0;
         }
     }
 }

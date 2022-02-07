@@ -2,11 +2,7 @@
 {
     public abstract class Car
     {
-        protected int FuelConsumption { get; set; }
-
-        public int GetFuelConsumption()
-        {
-            return FuelConsumption;
-        }
+        public abstract int FuelConsumption { get; }
+        public int CalculateConsumption(int laps) => laps * FuelConsumption;
     }
 }

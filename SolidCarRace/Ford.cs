@@ -2,10 +2,7 @@
 {
     public class Ford : Car
     {
-
-        public Ford()
-        {
-            FuelConsumption = 4;
-        }
+        private const int Consumption = 4;
+        public override int FuelConsumption => Consumption;
     }
 }
